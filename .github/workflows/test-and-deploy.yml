@@ -71,5 +71,5 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}   # 建议用内置令牌
+          github_token: ${{ secrets.GITHUB_TOKEN }}   # 建议用内置令牌 
           publish_dir: ./docs
