@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"todo\"",
+    "test": "pnpm --filter @liu-element/components test",
+    "dev": "pnpm --filter @liu-element/play dev",
+    "storybook": "pnpm --filter @liu-element/play storybook",
     "docs:dev":"pnpm --filter @liu-element/docs dev",
     "docs:build":"pnpm --filter @liu-element/docs build"
   },
