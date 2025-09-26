@@ -1,6 +1,6 @@
 import type { Meta, StoryObj, ArgTypes } from "@storybook/vue3-vite";
 import { LiuButton } from "liu-element";
-import { within, userEvent } from "@storybook/testing-library";
+import { fn,within, userEvent,expect } from "storybook/test";
 
 
 // type Story = StoryObj<typeof LiuButton> & { argTypes?: ArgTypes };
@@ -49,11 +49,7 @@ const meta: Meta<typeof LiuButton> = {
       control: { type: "text" },
     },
   },
-  args: {
-    onClick: () => {
-      console.log("click");
-    },
-  },
+  args: { onClick: fn() },
 };
 const container = (val: string) => `
 <div style="margin:5px">
@@ -90,4 +86,29 @@ export const Default: Story & { args: { content: string } } = {
     expect(args.onClick).toHaveBeenCalled();
   },
 };
+
+export const Circle: Story = {
+  args: {
+    icon: "search",
+  },
+  render: (args) => ({
+    components: { LiuButton },
+    setup() {
+      return { args };
+    },
+    template: container(`
+      <liu-button circle v-bind="args"/>
+    `),
+  }),
+  play: async ({ canvasElement, args, step }) => {
+    const canvas = within(canvasElement);
+    await step("click button", async () => {
+      await userEvent.click(canvas.getByRole("button"));
+    });
+
+    expect(args.onClick).toHaveBeenCalled();
+  },
+};
+
+
 export default meta;

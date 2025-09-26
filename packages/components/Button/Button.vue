@@ -2,7 +2,7 @@
 import { computed, ref } from 'vue';
 import type { ButtonEmits, ButtonProps } from './types';
 import { throttle } from 'lodash-es';
-import { LiuIcon } from 'liu-element';
+import { LiuIcon } from '../Icon';
 
 
 defineOptions({ name: 'LiuButton' })
@@ -16,7 +16,7 @@ const slots = defineSlots()
 const _ref = ref<HTMLButtonElement>()
 const emits = defineEmits<ButtonEmits>()
 const handleBtnClick = (e: MouseEvent) => emits('click', e)
-const handleBtnClickThrottle = throttle(handleBtnClick, props.throttleDuration)
+const handleBtnClickThrottle = throttle(handleBtnClick, props.throttleDuration,{trailing:false})
 const iconStyle = computed(() => ({
     marginRight: slots.default ? "6px" : "0px"
 }))
