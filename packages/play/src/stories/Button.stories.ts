@@ -1,7 +1,6 @@
 import type { Meta, StoryObj, ArgTypes } from "@storybook/vue3-vite";
 import { LiuButton } from "liu-element";
-
-
+import { within, userEvent } from "@storybook/testing-library";
 
 
 // type Story = StoryObj<typeof LiuButton> & { argTypes?: ArgTypes };
@@ -50,14 +49,18 @@ const meta: Meta<typeof LiuButton> = {
       control: { type: "text" },
     },
   },
-  args:{onClick:() => {console.log("click")}}
+  args: {
+    onClick: () => {
+      console.log("click");
+    },
+  },
 };
 const container = (val: string) => `
 <div style="margin:5px">
   ${val}
 </div>
 `;
-export const Default: Story & { args: { content: string } }= {
+export const Default: Story & { args: { content: string } } = {
   argTypes: {
     content: {
       control: { type: "text" },
@@ -67,14 +70,24 @@ export const Default: Story & { args: { content: string } }= {
     type: "primary",
     content: "Button",
   },
-  render: (args:any) => ({
+  render: (args: any) => ({
     components: { LiuButton },
     setup() {
       return { args };
     },
     template: container(
-      `<liu-button v-bind="args">{{args.content}}</liu-button>`
+      `<liu-button v-bind="args">
+      {{args.content}}
+      </liu-button>`
     ),
   }),
-}
+  play: async ({ canvasElement, args, step }) => {
+    const canvas = within(canvasElement);
+    await step("click button", async () => {
+      await userEvent.tripleClick(canvas.getByRole("button"));
+    });
+
+    expect(args.onClick).toHaveBeenCalled();
+  },
+};
 export default meta;

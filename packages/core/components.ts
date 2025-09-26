@@ -1,3 +1,3 @@
-import {LiuButton} from '@liu-element/components'
+import {LiuButton, LiuIcon} from '@liu-element/components'
 import type { Plugin } from 'vue';
-export default [LiuButton] as Plugin[];
+export default [LiuButton,LiuIcon] as Plugin[];

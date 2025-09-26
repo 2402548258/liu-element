@@ -7,8 +7,8 @@
     "test": "pnpm --filter @liu-element/components test",
     "dev": "pnpm --filter @liu-element/play dev",
     "storybook": "pnpm --filter @liu-element/play storybook",
-    "docs:dev":"pnpm --filter @liu-element/docs dev",
-    "docs:build":"pnpm --filter @liu-element/docs build"
+    "docs:dev": "pnpm --filter @liu-element/docs dev",
+    "docs:build": "pnpm --filter @liu-element/docs build"
   },
   "keywords": [],
   "author": "",
@@ -28,7 +28,10 @@
     "typescript": "5.2.2",
     "vite": "5.1.4",
     "vitest": "1.4.0",
-    "vue-tsc": "1.8.27"
+    "vue-tsc": "1.8.27",
+    "@fortawesome/fontawesome-svg-core": "^6.5.2",
+    "@fortawesome/free-solid-svg-icons": "^6.5.2",
+    "@fortawesome/vue-fontawesome": "^3.0.8"
   },
   "dependencies": {
     "lodash-es": "4.17.21",

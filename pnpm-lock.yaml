@@ -27,6 +27,15 @@ importers:
         specifier: 3.4.19
         version: 3.4.19(typescript@5.2.2)
     devDependencies:
+      '@fortawesome/fontawesome-svg-core':
+        specifier: ^6.5.2
+        version: 6.7.2
+      '@fortawesome/free-solid-svg-icons':
+        specifier: ^6.5.2
+        version: 6.7.2
+      '@fortawesome/vue-fontawesome':
+        specifier: ^3.0.8
+        version: 3.1.2(@fortawesome/fontawesome-svg-core@6.7.2)(vue@3.4.19(typescript@5.2.2))
       '@types/lodash-es':
         specifier: 4.17.12
         version: 4.17.12
@@ -108,15 +117,6 @@ importers:
       '@chromatic-com/storybook':
         specifier: 4.1.1
         version: 4.1.1(storybook@9.1.8(@testing-library/dom@10.4.1)(vite@5.1.4(@types/node@20.11.20)))
-      '@fortawesome/fontawesome-svg-core':
-        specifier: ^6.5.2
-        version: 6.7.2
-      '@fortawesome/free-solid-svg-icons':
-        specifier: ^6.5.2
-        version: 6.7.2
-      '@fortawesome/vue-fontawesome':
-        specifier: ^3.0.8
-        version: 3.1.2(@fortawesome/fontawesome-svg-core@6.7.2)(vue@3.5.21(typescript@5.8.3))
       '@storybook/addon-a11y':
         specifier: 9.1.8
         version: 9.1.8(storybook@9.1.8(@testing-library/dom@10.4.1)(vite@5.1.4(@types/node@20.11.20)))
@@ -3351,10 +3351,10 @@ snapshots:
     dependencies:
       '@fortawesome/fontawesome-common-types': 6.7.2
 
-  '@fortawesome/vue-fontawesome@3.1.2(@fortawesome/fontawesome-svg-core@6.7.2)(vue@3.5.21(typescript@5.8.3))':
+  '@fortawesome/vue-fontawesome@3.1.2(@fortawesome/fontawesome-svg-core@6.7.2)(vue@3.4.19(typescript@5.2.2))':
     dependencies:
       '@fortawesome/fontawesome-svg-core': 6.7.2
-      vue: 3.5.21(typescript@5.8.3)
+      vue: 3.4.19(typescript@5.2.2)
 
   '@isaacs/cliui@8.0.2':
     dependencies:
