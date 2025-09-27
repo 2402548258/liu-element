@@ -206,7 +206,6 @@
 .liu-button-group {
     display: inline-block;
     vertical-align: middle;
-
     &::after {
         clear: both;
     }

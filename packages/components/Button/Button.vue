@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue';
-import type { ButtonEmits, ButtonProps } from './types';
+import { computed, inject, ref } from 'vue';
+import type { ButtonEmits, ButtonGroupContext, ButtonInstance, ButtonProps } from './types';
 import { throttle } from 'lodash-es';
 import { LiuIcon } from '../Icon';
+import { BUTTON_GROUP_CTX_KEY } from './constant';
 
 
 defineOptions({ name: 'LiuButton' })
@@ -14,12 +15,25 @@ const props = withDefaults(defineProps<ButtonProps>(), {
 })
 const slots = defineSlots()
 const _ref = ref<HTMLButtonElement>()
+const ctx = inject<ButtonGroupContext|undefined>(BUTTON_GROUP_CTX_KEY,void 0)
+const type = computed(() => {
+    return ctx?.type ?? props?.type ?? ''
+})
+const size = computed(() => {
+    return ctx?.size ?? props?.size ?? ''
+})
+const disabled = computed(() => {
+    return ctx?.disabled ?? props?.disabled ?? false
+})
 const emits = defineEmits<ButtonEmits>()
 const handleBtnClick = (e: MouseEvent) => emits('click', e)
 const handleBtnClickThrottle = throttle(handleBtnClick, props.throttleDuration,{trailing:false})
 const iconStyle = computed(() => ({
     marginRight: slots.default ? "6px" : "0px"
 }))
+defineExpose<ButtonInstance>({
+    ref: _ref
+})
 </script>
 
 <template>

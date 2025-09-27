@@ -5,10 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "pnpm --filter @liu-element/components test",
-    "dev": "pnpm --filter @liu-element/play dev",
-    "storybook": "pnpm --filter @liu-element/play storybook",
+    "dev": "pnpm run build && pnpm --filter @liu-element/play dev",
+    "storybook": "pnpm run build && pnpm --filter @liu-element/play storybook",
     "docs:dev": "pnpm --filter @liu-element/docs dev",
-    "docs:build": "pnpm --filter @liu-element/docs build"
+    "docs:build": "pnpm --filter @liu-element/docs build",
+    "build": "pnpm --filter liu-element build"
   },
   "keywords": [],
   "author": "",
@@ -20,25 +21,31 @@
     "@vitejs/plugin-vue": "5.0.4",
     "@vitejs/plugin-vue-jsx": "3.1.0",
     "@vue/tsconfig": "0.5.1",
+    "move-file-cli": "3.0.0",
+    "npm-run-all": "^4.1.5",
     "postcss-color-mix": "1.1.0",
     "postcss-each": "1.1.0",
     "postcss-each-variables": "0.3.0",
     "postcss-for": "2.1.1",
     "postcss-nested": "6.0.1",
+    "release-it": "^19.0.5",
     "typescript": "5.2.2",
     "vite": "5.1.4",
     "vitest": "1.4.0",
-    "vue-tsc": "1.8.27",
-    "@fortawesome/fontawesome-svg-core": "^6.5.2",
-    "@fortawesome/free-solid-svg-icons": "^6.5.2",
-    "@fortawesome/vue-fontawesome": "^3.0.8"
+    "vue-tsc": "1.8.27"
   },
   "dependencies": {
-    "lodash-es": "4.17.21",
-    "vue": "3.4.19",
-    "liu-element": "workspace:*",
+    "@fortawesome/fontawesome-svg-core": "^6.5.2",
+    "@fortawesome/free-solid-svg-icons": "^6.5.2",
+    "@fortawesome/vue-fontawesome": "^3.0.8",
+    "@liu-element/components": "workspace:*",
     "@liu-element/hooks": "workspace:*",
+    "@liu-element/theme": "workspace:*",
     "@liu-element/utils": "workspace:*",
-    "@liu-element/theme": "workspace:*"
+    "@popperjs/core": "2.11.8",
+    "@xiaoyue789/liu-element": "workspace:*",
+    "async-validator": "4.2.5",
+    "lodash-es": "4.17.21",
+    "vue": "3.4.19"
   }
 }

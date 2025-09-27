@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { LiuButton } from 'liu-element';
+import { LiuButton } from '@xiaoyue789/liu-element';
 
 </script>
 
 <template>
- <liu-button type="primary" size="default"></liu-button>
+ <liu-button type="primary" size="default">{{ 12345 }}</liu-button>
 </template>
 
 

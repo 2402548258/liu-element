@@ -1,4 +1,6 @@
 import type { Preview } from '@storybook/vue3-vite'
+import "@xiaoyue789/liu-element/css";
+
 
 const preview: Preview = {
   parameters: {
