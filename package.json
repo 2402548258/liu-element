@@ -9,7 +9,8 @@
     "storybook": "pnpm run build && pnpm --filter @liu-element/play storybook",
     "docs:dev": "pnpm --filter @liu-element/docs dev",
     "docs:build": "pnpm --filter @liu-element/docs build",
-    "build": "pnpm --filter liu-element build"
+    "build": "pnpm --filter @xiaoyue789/liu-element build",
+    "release": "pnpm --filter @xiaoyue789/liu-element release"
   },
   "keywords": [],
   "author": "",
