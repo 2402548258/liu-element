@@ -2,9 +2,12 @@ import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import { dirname, resolve } from "path";
 import dts from "vite-plugin-dts";
-import { filter, includes, map } from "lodash-es";
-import { readdirSync } from "fs";
+import { filter, includes, map,defer,delay } from "lodash-es";
+import { readdirSync,readdir } from "fs";
 import { fileURLToPath } from "url";
+import terser from "@rollup/plugin-terser";
+import shell from "shelljs";
+import hooks from "./hooksPlugin";
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -15,6 +18,17 @@ function getDirectoriesSync(basePath: string) {
     (entry) => entry.name
   );
 }
+const isProd = process.env.NODE_ENV === "production";
+const isDev = process.env.NODE_ENV === "development";
+const isTest = process.env.NODE_ENV === "test";
+const TRY_MOVE_STYLES_DELAY = 750
+function moveStyles() {
+  readdir("./dist/es/theme", (err) => {
+    if (err) return delay(moveStyles, TRY_MOVE_STYLES_DELAY);
+    defer(() => shell.mv("./dist/es/theme", "./dist"));
+  });
+}
+
 
 export default defineConfig({
   plugins: [
@@ -22,10 +36,48 @@ export default defineConfig({
     dts({
       tsconfigPath: "../../tsconfig.build.json",
       outDir: "dist/types",
+    }) as any,
+    hooks({
+      rmFiles: [
+        "./dist/es",
+        "./dist/theme",
+        "./dist/types",
+        "./dist/stats.es.html",
+      ],
+      afterBuild: moveStyles,
+    }),
+    terser({
+      compress: {
+        sequences: isProd,
+        arguments: isProd,
+        drop_console: isProd && ["log"],
+        drop_debugger: isProd,
+        passes: isProd ? 4 : 1,
+        global_defs: {
+          "@DEV": JSON.stringify(isDev),
+          "@PROD": JSON.stringify(isProd),
+          "@TEST": JSON.stringify(isTest),
+        },
+      },
+      format: {
+        semicolons: false,
+        shorthand: isProd,
+        braces: !isProd,
+        beautify: !isProd,
+        comments: !isProd,
+      },
+      mangle: {
+        toplevel: isProd,
+        eval: isProd,
+        keep_classnames: isDev,
+        keep_fnames: isDev,
+      },
     }),
   ],
   build: {
     outDir: "dist/es",
+    minify: false,
+    cssCodeSplit: true,
     lib: {
       entry: resolve(__dirname, "./index.ts"),
       name: "liuElement",
@@ -50,6 +102,12 @@ export default defineConfig({
           if (chunkInfo.name === "style.css") {
             return "index.css";
           }
+          if (
+            chunkInfo.type === "asset" &&
+            /\.css$/i.test(chunkInfo.name as string)
+          ) {
+            return "theme/[name].[ext]";
+          }
           return chunkInfo.name as string;
         },
         manualChunks(id) {
@@ -57,7 +115,11 @@ export default defineConfig({
 
           if (includes(id, "/packages/hooks")) return "hooks";
 
-          if (includes(id, "/packages/utils")) return "utils";
+          if (
+            includes(id, "/packages/utils") ||
+            includes(id, "plugin-vue:export-helper")
+          )
+            return "utils";
           for (const item of getDirectoriesSync("../components")) {
             if (includes(id, `/packages/components/${item}`)) return item;
           }

@@ -15,7 +15,7 @@ const props = withDefaults(defineProps<ButtonProps>(), {
 })
 const slots = defineSlots()
 const _ref = ref<HTMLButtonElement>()
-const ctx = inject<ButtonGroupContext|undefined>(BUTTON_GROUP_CTX_KEY,void 0)
+const ctx = inject<ButtonGroupContext | undefined>(BUTTON_GROUP_CTX_KEY, void 0)
 const type = computed(() => {
     return ctx?.type ?? props?.type ?? ''
 })
@@ -32,7 +32,11 @@ const iconStyle = computed(() => ({
     marginRight: slots.default ? "6px" : "0px"
 }))
 defineExpose<ButtonInstance>({
-    ref: _ref
+    ref: _ref,
+    disabled: disabled,
+    size: size,
+    type: type
+
 })
 </script>
 

@@ -1,0 +1,67 @@
+.liu-collapse {
+    --liu-collapse-border-color: var(--liu-border-color-light);
+    --liu-collapse-header-height: 48px;
+    --liu-collapse-header-bg-color: var(--liu-fill-color-blank);
+    --liu-collapse-header-text-color: var(--liu-text-color-primary);
+    --liu-collapse-header-font-size: 13px;
+    --liu-collapse-content-bg-color: var(--liu-fill-color-blank);
+    --liu-collapse-content-font-size: 13px;
+    --liu-collapse-content-text-color: var(--liu-text-color-primary);
+    --liu-collapse-disabled-text-color: var(--liu-disabled-text-color);
+    --liu-collapse-disabled-border-color: var(--liu-border-color-lighter);
+    border-top: 1px solid var(--liu-collapse-border-color);
+    border-bottom: 1px solid var(--liu-collapse-border-color);
+}
+
+.liu-collapse-item__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--liu-collapse-header-height);
+    line-height: var(--liu-collapse-header-height);
+    background-color: var(--liu-collapse-header-bg-color);
+    color: var(--liu-collapse-header-text-color);
+    cursor: pointer;
+    font-size: var(--liu-collapse-header-font-size);
+    font-weight: 500;
+    transition: border-bottom-color var(--liu-transition-duration);
+    outline: none;
+    border-bottom: 1px solid var(--liu-collapse-border-color);
+
+    &.is-disabled {
+        color: var(--liu-collapse-disabled-text-color);
+        cursor: not-allowed;
+        background-image: none;
+    }
+
+    &.is-active {
+        border-bottom-color: transparent;
+        .header-angle {
+            transform: rotate(90deg);
+        }
+    }
+
+    .header-angle {
+        transition: transform var(--liu-transition-duration);
+    }
+}
+
+.liu-collapse-item__content {
+    will-change: height;
+    background-color: var(--liu-collapse-content-bg-color);
+    overflow: hidden;
+    box-sizing: border-box;
+    font-size: var(--liu-collapse-content-font-size);
+    color: var(--liu-collapse-content-text-color);
+    border-bottom: 1px solid var(--liu-collapse-border-color);
+    padding-bottom: 25px;
+}
+
+
+
+
+.slide-enter-active,
+.slide-leave-active {
+    transition: height var(--liu-transition-duration) ease-in-out;
+    overflow: hidden;
+}

@@ -1,5 +1,5 @@
 import type { Preview } from '@storybook/vue3-vite'
-import "@xiaoyue789/liu-element/css";
+import "@xiaoyue789/liu-element/dist/index.css";
 
 
 const preview: Preview = {

@@ -124,19 +124,19 @@ export const Group: Story & { args: { content1: string; content2: string } } = {
       control: "boolean",
     },
     content1: {
-      control: { type: "text" },
-      defaultValue: "Button1",
+      control: { type: "text" }
     },
     content2: {
-      control: { type: "text" },
-      defaultValue: "Button2",
+      control: { type: "text" }
     },
   },
   args: {
     round: true,
+    groupType:"primary",
     content1: "Button1",
     content2: "Button2",
     content3: "Button3",
+    type: "info",
   },
   render: (args) => ({
     components: { LiuButton, LiuButtonGroup },
