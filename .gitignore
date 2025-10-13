@@ -20,6 +20,7 @@ dist-ssr
 .vitepress/cache
 
 # Editor directories and files
+.claude
 .vscode/*
 !.vscode/extensions.json
 .idea
