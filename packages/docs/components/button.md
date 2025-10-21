@@ -27,25 +27,25 @@ demo-preview=../demo/button/Basic.vue
 
 你可以使用 `disabled` 属性来定义按钮是否被禁用。
 
-<!-- ::: preview
+::: preview
 demo-preview=../demo/button/Disabled.vue
-::: -->
+:::
 
 ## 图标按钮
 
 使用 `icon`属性来定义按钮的图标。
 
-<!-- ::: preview
+::: preview
 demo-preview=../demo/button/Icon.vue
-::: -->
+:::
 
 ## 按钮组
 
 使用 `<liu-button-group>` 对多个按钮分组。
 
-<!-- ::: preview
+::: preview
 demo-preview=../demo/button/Group.vue
-::: -->
+:::
 
 ## 加载状态
 
@@ -57,33 +57,33 @@ demo-preview=../demo/button/Group.vue
 ps: `loading` 插槽优先级高于 `loadingIcon` 属性
 :::
 
-<!-- ::: preview
+::: preview
 demo-preview=../demo/button/Loading.vue
-::: -->
+:::
 
 ## 按钮尺寸
 
 使用 `size`属性来定义按钮的尺寸。
 
-<!-- ::: preview
+::: preview
 demo-preview=../demo/button/Size.vue
-::: -->
+:::
 
 ## Tag
 
 可以自定义元素标签。例如，按钮，div，路由链接，nuxt 链接。
 
-<!-- ::: preview
+::: preview
 demo-preview=../demo/button/Tag.vue
-::: -->
+:::
 
 ## 节流模式
 
 可以通过 `useThrottle` 属性来定义按钮是否使用节流模式 默认为 true。
 
-<!-- ::: preview
+::: preview
 demo-preview=../demo/button/Throttle.vue
-::: -->
+:::
 
 ## Button API
 

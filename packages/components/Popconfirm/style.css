@@ -1,0 +1,14 @@
+.liu-popconfirm {
+  .liu-popconfirm__action {
+    text-align: right;
+    margin-top: 8px;
+  }
+  .liu-popconfirm__main {
+    display: flex;
+    align-items: center;
+    /* margin-bottom: 10px; */
+    i {
+      margin-right: 5px;
+    }
+  }
+}

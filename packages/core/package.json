@@ -13,9 +13,9 @@
   ],
   "scripts": {
     "build": "run-s clean build-es-umd",
-    "build:watch": "run-p clean build-es-umd:watch",
-    "build-es-umd": "run-p build-es build-umd ",
-    "build-es-umd:watch": "run-p build-es:watch build-umd:watch ",
+    "build:watch": "run-s clean build-es-umd:watch",
+    "build-es-umd": "run-s build-es build-umd ",
+    "build-es-umd:watch": "run-s build-es:watch build-umd:watch ",
     "build-umd": "vite build --config vite.umd.config.ts",
     "build-es": "vite build --config vite.es.config.ts",
     "build-umd:watch": "vite build --watch --config vite.umd.config.ts",
@@ -30,8 +30,7 @@
   "packageManager": "pnpm@10.14.0",
   "devDependencies": {
     "rimraf": "^6.0.1",
-    "vite-plugin-compression2": "^2.2.1",
-    "vite-plugin-dts": "3.9.1"
+    "vite-plugin-compression2": "^2.2.1"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.2",

@@ -7,7 +7,7 @@ import { readdirSync,readdir } from "fs";
 import { fileURLToPath } from "url";
 import terser from "@rollup/plugin-terser";
 import shell from "shelljs";
-import hooks from "./hooksPlugin";
+import { hooksPlugin as hooks } from "@liu-element/vite-plugins";
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)

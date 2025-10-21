@@ -5,14 +5,18 @@
   "main": "index.js",
   "scripts": {
     "play": "pnpm --filter @liu-element/play dev",
-    "test": "pnpm --filter @liu-element/components test",
+    "test": "cross-env NODE_ENV=test pnpm --filter @liu-element/components test",
     "dev": "pnpm run build && pnpm --filter @liu-element/play dev",
     "storybook": "cross-env NODE_ENV=production pnpm run build && pnpm --filter @liu-element/play storybook",
     "docs:dev": "pnpm --filter @liu-element/docs dev",
     "docs:build": "pnpm --filter @liu-element/docs build",
-    "build": "cross-env NODE_ENV=production pnpm --filter @xiaoyue789/liu-element build",
-    "build:dev": "cross-env NODE_ENV=development pnpm --filter @xiaoyue789/liu-element build:watch",
-    "release": "pnpm --filter @xiaoyue789/liu-element release"
+    "build": "run-s build-hooks build-components",
+    "build-components": "cross-env NODE_ENV=production pnpm --filter @xiaoyue789/liu-element build",
+    "build-hooks": "cross-env NODE_ENV=production pnpm --filter @liu-element/hooks build",
+    "release": "pnpm --filter @xiaoyue789/liu-element release",
+    "build:dev": "run-s build-hooks:dev build-components:dev",
+    "build-components:dev": "cross-env NODE_ENV=development pnpm --filter @xiaoyue789/liu-element build:watch",
+    "build-hooks:dev": "cross-env NODE_ENV=development pnpm --filter @liu-element/hooks build"
   },
   "keywords": [],
   "author": "",
@@ -25,6 +29,7 @@
     "@types/shelljs": "^0.8.17",
     "@vitejs/plugin-vue": "5.0.4",
     "@vitejs/plugin-vue-jsx": "3.1.0",
+    "@vitest/coverage-v8": "^1.6.1",
     "@vue/tsconfig": "0.5.1",
     "cross-env": "^10.1.0",
     "cssnano": "^7.1.1",
@@ -40,8 +45,10 @@
     "shelljs": "^0.10.0",
     "typescript": "5.2.2",
     "vite": "5.1.4",
-    "vitest": "1.4.0",
-    "vue-tsc": "1.8.27"
+    "vite-plugin-dts": "3.9.1",
+    "vitest": "^1.6.1",
+    "vue-tsc": "1.8.27",
+    "vue3-i18n": "^1.1.5"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.2",
@@ -51,9 +58,13 @@
     "@liu-element/hooks": "workspace:*",
     "@liu-element/theme": "workspace:*",
     "@liu-element/utils": "workspace:*",
+    "@liu-element/locale": "workspace:*",
+    "@liu-element/vite-plugins": "workspace:*",
     "@popperjs/core": "2.11.8",
+    "@vue/test-utils": "2.4.5",
     "@xiaoyue789/liu-element": "workspace:*",
     "async-validator": "4.2.5",
+    "jsdom": "24.0.0",
     "lodash-es": "4.17.21",
     "vue": "3.4.19"
   }

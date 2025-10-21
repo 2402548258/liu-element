@@ -6,7 +6,7 @@ import { defer, delay } from "lodash-es";
 import compression from "vite-plugin-compression2";
 import terser from "@rollup/plugin-terser";
 import shell from "shelljs";
-import hooks from "./hooksPlugin"
+import { hooksPlugin as hooks } from "@liu-element/vite-plugins";
 const isProd = process.env.NODE_ENV === "production";
 const isDev = process.env.NODE_ENV === "development";
 const isTest = process.env.NODE_ENV === "test";
