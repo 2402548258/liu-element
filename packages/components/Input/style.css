@@ -1,0 +1,224 @@
+.liu-input {
+  --liu-input-text-color: var(--liu-text-color-regular);
+  --liu-input-border: var(--liu-border);
+  --liu-input-hover-border: var(--liu-border-color-hover);
+  --liu-input-focus-border: var(--liu-color-primary);
+  --liu-input-transparent-border: 0 0 0 1px transparent inset;
+  --liu-input-border-color: var(--liu-border-color);
+  --liu-input-border-radius: var(--liu-border-radius-base);
+  --liu-input-bg-color: var(--liu-fill-color-blank);
+  --liu-input-icon-color: var(--liu-text-color-placeholder);
+  --liu-input-placeholder-color: var(--liu-text-color-placeholder);
+  --liu-input-hover-border-color: var(--liu-border-color-hover);
+  --liu-input-clear-hover-color: var(--liu-text-color-secondary);
+  --liu-input-focus-border-color: var(--liu-color-primary);
+}
+
+.liu-input {
+  --liu-input-height: var(--liu-component-size);
+  position: relative;
+  font-size: var(--liu-font-size-base);
+  display: inline-flex;
+  width: 100%;
+  line-height: var(--liu-input-height);
+  box-sizing: border-box;
+  vertical-align: middle;
+  &.is-disabled {
+    cursor: not-allowed;
+    .liu-input__wrapper {
+      background-color: var(--liu-disabled-bg-color);
+      box-shadow: 0 0 0 1px var(--liu-disabled-border-color) inset;
+    }
+    .liu-input__inner {
+      color: var(--liu-disabled-text-color);
+      -webkit-text-fill-color: var(--liu-disabled-text-color);
+      cursor: not-allowed;
+    }
+    .liu-textarea__inner {
+      background-color: var(--liu-disabled-bg-color);
+      box-shadow: 0 0 0 1px var(--liu-disabled-border-color) inset;
+      color: var(--liu-disabled-text-color);
+      -webkit-text-fill-color: var(--liu-disabled-text-color);
+      cursor: not-allowed;
+    }
+  }
+  &.is-prepend {
+    >.liu-input__wrapper {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+  &.is-append {
+    >.liu-input__wrapper {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+  &.is-focus .liu-input__wrapper {
+    box-shadow: 0 0 0 1px var(--liu-input-focus-border-color) inset!important
+  }
+}
+
+.liu-input--large {
+  --liu-input-height: var(--liu-component-size-large);
+  font-size: 14px;
+  .liu-input__wrapper {
+    padding: 1px 15px;
+    .liu-input__inner {
+      --liu-input-inner-height: calc(var(--liu-input-height, 40px) - 2px);
+    }
+  }
+
+}
+.liu-input--small {
+  --liu-input-height: var(--liu-component-size-small);
+  font-size: 12px;
+  .liu-input__wrapper {
+    padding: 1px 7px;
+    .liu-input__inner {
+      --liu-input-inner-height: calc(var(--liu-input-height, 24px) - 2px);
+    } 
+  }
+}
+.liu-input__prefix, .liu-input__suffix {
+  display: inline-flex;
+  white-space: nowrap;
+  flex-shrink: 0;
+  flex-wrap: nowrap;
+  height: 100%;
+  text-align: center;
+  color: var(--liu-input-icon-color, var(--liu-text-color-placeholder));
+  transition: all var(--liu-transition-duration);
+}
+.liu-input__prefix {
+  >:first-child {
+    margin-left: 0px !important;
+  }
+  >:last-child {
+    margin-right: 8px !important;
+  }
+}
+.liu-input__suffix {
+  >:first-child {
+    margin-left: 8px !important;
+  }
+  >:last-child {
+    margin-right: 0px !important;
+  }
+}
+.liu-input__prepend, .liu-input__append {
+  background-color: var(--liu-fill-color-light);
+  color: var(--liu-color-info);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+  border-radius: var(--liu-input-border-radius);
+  padding: 0 20px;
+  white-space: nowrap;
+}
+.liu-input__prepend {
+  border-right: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  box-shadow: 1px 0 0 0 var(--liu-input-border-color) inset,0 1px 0 0 var(--liu-input-border-color) inset,0 -1px 0 0 var(--liu-input-border-color) inset;
+
+}
+.liu-input__append {
+  border-left: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  box-shadow: 0 1px 0 0 var(--liu-input-border-color) inset,0 -1px 0 0 var(--liu-input-border-color) inset,-1px 0 0 0 var(--liu-input-border-color) inset;
+  & >.liu-input__wrapper {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+.liu-input--textarea {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  vertical-align: bottom;
+  font-size: var(--liu-font-size-base);
+}
+.liu-textarea__wrapper {
+  position: relative;
+  display: block;
+  resize: vertical;
+  padding: 5px 11px;
+  line-height: 1.5;
+  box-sizing: border-box;
+  width: 100%;
+  font-size: inherit;
+  font-family: inherit;
+  color: var(--liu-input-text-color, var(--liu-text-color-regular));
+  background-color: var(--liu-input-bg-color, var(--liu-fill-color-blank));
+  background-image: none;
+  -webkit-appearance: none;
+  box-shadow: 0 0 0 1px var(--liu-input-border-color, var(--liu-border-color)) inset;
+  border-radius: var(--liu-input-border-radius, var(--liu-border-radius-base));
+  transition: var(--liu-transition-box-shadow);
+  border: none;
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 1px var(--liu-input-focus-border-color) inset;
+  }
+  &::placeholder {
+    color: var(--liu-input-placeholder-color);
+  }
+}
+.liu-input__wrapper {
+  display: inline-flex;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+  padding: 1px 11px;
+  background-color: var(--liu-input-bg-color, var(--liu-fill-color-blank));
+  background-image: none;
+  border-radius: var(--liu-input-border-radius, var(--liu-border-radius-base));
+  transition: var(--liu-transition-box-shadow);
+  box-shadow: 0 0 0 1px var(--liu-input-border-color, var(--liu-border-color)) inset;
+  &:hover {
+    box-shadow: 0 0 0 1px var(--liu-input-hover-border-color) inset;
+  }
+  &.is-focus {
+    box-shadow: 0 0 0 1px var(--liu-input-focus-border-color) inset;
+  }
+  .liu-input__inner {
+    --liu-input-inner-height: calc(var(--liu-input-height, 32px) - 2px);
+    width: 100%;
+    flex-grow: 1;
+    -webkit-appearance: none;
+    color: var(--liu-input-text-color, var(--liu-text-color-regular));
+    font-size: inherit;
+    height: var(--liu-input-inner-height);
+    line-height: var(--liu-input-inner-height);
+    padding: 0;
+    outline: none;
+    border: none;
+    background: none;
+    box-sizing: border-box;
+    &::placeholder {
+      color: var(--liu-input-placeholder-color);
+    }
+  }  
+  .liu-icon {
+    height: inherit;
+    line-height: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all var(--liu-transition-duration);
+    margin-left: 8px;
+  }
+  .liu-input__clear, .liu-input__password {
+    color: var(--liu-input-icon-color);
+    font-size: 14px;
+    cursor: pointer;
+    &:hover {
+     color: var(--liu-input-clear-hover-color);
+    }
+  }
+}
