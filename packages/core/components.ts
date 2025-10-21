@@ -11,6 +11,7 @@ import {
   LiuDropdownItem,
   LiuConfigProvider,
   LiuMessage,
+  LiuNotification,
 } from "@liu-element/components";
 import type { Plugin } from "vue";
 export default [
@@ -26,4 +27,5 @@ export default [
   LiuDropdownItem,
   LiuConfigProvider,
   LiuMessage,
+  LiuNotification
 ] as Plugin[];
