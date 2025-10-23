@@ -1,10 +1,9 @@
 <script lang="ts" setup>
 import { computed, nextTick, ref, shallowRef, useAttrs, watch } from 'vue';
-import type { InputEmits, InputInstance, InputProps } from './type';
+import type { InputEmits, InputInstance, InputProps } from './types';
 import Icon from '../Icon/Icon.vue';
 import { useFocusController } from '@liu-element/hooks';
 import { each, noop } from "lodash-es";
-import { emit } from 'process';
 
 
 defineOptions({

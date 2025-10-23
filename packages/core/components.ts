@@ -13,7 +13,11 @@ import {
   LiuMessage,
   LiuNotification,
   LiuInput,
+  LiuMessageBox,
+
 } from "@liu-element/components";
+
+
 import type { Plugin } from "vue";
 export default [
   LiuButton,
@@ -29,5 +33,6 @@ export default [
   LiuConfigProvider,
   LiuMessage,
   LiuNotification,
-  LiuInput
+  LiuInput,
+  LiuMessageBox,
 ] as Plugin[];
