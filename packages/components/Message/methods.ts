@@ -37,7 +37,7 @@ function normalizeOptions(options: MessageParams): CreateMessageProps {
 function createMessage(props: CreateMessageProps): MessageInstance {
   const id = useId().value;
   const container = document.createElement("div");
-  const options = normalizeOptions(props);
+  // const options = normalizeOptions(props);
 
   const destroy = () => {
     const idx = findIndex(instances, { id });

@@ -14,7 +14,10 @@ import {
   LiuNotification,
   LiuInput,
   LiuMessageBox,
-
+  LiuLoading,
+  LiuSwitch,
+  LiuSelect,
+  LiuOption
 } from "@liu-element/components";
 
 
@@ -35,4 +38,8 @@ export default [
   LiuNotification,
   LiuInput,
   LiuMessageBox,
+  LiuLoading,
+  LiuSwitch,
+  LiuSelect,
+  LiuOption
 ] as Plugin[];

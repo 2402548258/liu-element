@@ -61,9 +61,9 @@ function handleAction(action:MessageBoxAction){
 
 <template>
     <transition name="fade-in-linear" @after-leave="destroy">
-        <liu-overlay v-show="(visible as Ref).value" :z-index="state.zIndex" mask>
+        <liu-overlay v-show="state.visible" :z-index="state.zIndex">
             <div role="dialog" class="liu-overlay-message-box" @click="handleWrapperClick">
-                <div ref="rootRef" :class="[
+                <div  ref="rootRef" :class="[
                     'liu-message-box',
                     {
                         'is-center': state.center,
@@ -100,9 +100,10 @@ function handleAction(action:MessageBoxAction){
                     </div>
                     <div class="liu-message-box__footer">
                         <liu-button v-if="state.showCancelButton"
-                            class="liu-message-box__footer-btn liu-message-box__cancel-btn" :type="state.cancelButtonType"
-                            :round="state.roundButton" :loading="state.cancelButtonLoading"
-                            @click="handleAction('cancel')" @keydown.prevent.enter="handleAction('cancel')">{{
+                            class="liu-message-box__footer-btn liu-message-box__cancel-btn"
+                            :type="state.cancelButtonType" :round="state.roundButton"
+                            :loading="state.cancelButtonLoading" @click="handleAction('cancel')"
+                            @keydown.prevent.enter="handleAction('cancel')">{{
                             state.cancelButtonText }}</liu-button>
                         <liu-button v-show="state.showConfirmButton"
                             class="liu-message-box__footer-btn liu-message-box__confirm-btn"

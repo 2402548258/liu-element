@@ -1,0 +1,76 @@
+.liu-select {
+  --liu-select-item-hover-bg-color: var(--liu-fill-color-light);
+  --liu-select-item-font-size: var(--liu-font-size-base);
+  --liu-select-item-font-color: var(--liu-text-color-regular);
+  --liu-select-item-selected-font-color: var(--liu-color-primary);
+  --liu-select-item-disabled-font-color: var(--liu-text-color-placeholder);
+  --liu-select-input-focus-border-color: var(--liu-color-primary);
+}
+
+.liu-select{
+ display: inline-block;
+  vertical-align: middle;
+  line-height: 32px;
+  :deep(.er-tooltip__popper) {
+    padding: 0;
+  }
+
+  :deep(.er-input){
+    .header-angle {
+      transition: transform var(--liu-transition-duration);
+      &.is-active {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .liu-select__nodata, .liu-select__loading {
+    padding: 10px 0;
+    margin: 0;
+    text-align: center;
+    color: var(--liu-text-color-secondary);
+    font-size: var(--liu-select-font-size);
+  }
+  .liu-select__menu {
+    list-style: none;
+    margin: 6px 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .liu-select__menu-item { 
+    margin: 0;
+    font-size: var(--liu-select-item-font-size);
+    padding: 0 32px 0 20px;
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--liu-select-item-font-color);
+    height: 34px;
+    line-height: 34px;
+    box-sizing: border-box;
+    cursor: pointer;
+    &:hover {
+      background-color: var(--liu-select-item-hover-bg-color);
+    }
+    &.is-selected {
+      color: var(--liu-select-item-selected-font-color);
+      font-weight: 700;    
+    }
+    &.is-highlighted {
+      background-color: var(--liu-select-item-hover-bg-color);
+    }
+    &.is-disabled {
+      color: var(--liu-select-item-disabled-font-color);
+      cursor: not-allowed;
+      &:hover {
+        background-color: transparent;
+      }
+    }
+
+  }
+
+  :deep(.er-input__inner) {
+    cursor: pointer;
+  }
+}

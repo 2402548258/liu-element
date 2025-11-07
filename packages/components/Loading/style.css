@@ -1,0 +1,53 @@
+.liu-loading {
+  --liu-loading-icon-color: var(--liu-color-primary);
+  --liu-loading-mask-margin: 0;
+  --liu-loading-mask-size: 100%;
+  --liu-loading-icon-size: 42px;
+  --liu-loading-font-size: 14px;
+  --liu-loading-z-index: 20000;
+}
+.liu-loading {
+  opacity: 1;
+  transition: opacity var(--liu-transition-duration);
+  &.liu-loading__mask {
+    position: absolute;
+    margin: var(--liu-loading-mask-margin);
+    top: var(--liu-loading-mask-margin);
+    right: var(--liu-loading-mask-margin);
+    bottom: var(--liu-loading-mask-margin);
+    left: var(--liu-loading-mask-margin);
+    height: var(--liu-loading-mask-size);
+    width: var(--liu-loading-mask-size);
+    z-index: var(--liu-loading-z-index);
+    background: var(--liu-loading-bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &.is-fullscreen {
+      position: fixed;
+    }
+  }
+  .liu-loading__spinner {
+    color: var(--liu-loading-icon-color);
+    text-align: center;
+    .liu-loading-text {
+      margin: 3px 0;/*  */
+      font-size: var(--liu-loading-font-size);
+    }
+    i {
+      font-size: var(--liu-loading-icon-size);
+    }
+  }
+}
+.fade-in-linear-enter-from,
+.fade-in-linear-leave-to {
+    opacity: 0;
+}
+
+.liu-loading-parent--relative {
+  position: relative !important;
+}
+
+.liu-loading-parent--hidden {
+  overflow: hidden !important;
+}
