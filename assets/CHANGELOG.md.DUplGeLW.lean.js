@@ -1,0 +1,1 @@
+import{_ as e,a,o as t,an as r}from"./chunks/framework.BIv42v6X.js";const f=JSON.parse('{"title":"Change Log","description":"","frontmatter":{},"headers":[],"relativePath":"CHANGELOG.md","filePath":"CHANGELOG.md"}'),o={name:"CHANGELOG.md"},n=r("",5),l=[n];function i(c,s,h,_,m,d){return t(),a("div",null,l)}const g=e(o,[["render",i]]);export{f as __pageData,g as default};
