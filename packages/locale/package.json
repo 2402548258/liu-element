@@ -2,6 +2,7 @@
   "name": "@liu-element/locale",
   "version": "1.2.0",
   "description": "",
+  "private": true,
   "main": "index.ts",
   "module": "index.ts",
   "scripts": {
@@ -10,5 +11,5 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "gitHead": "c159a5d7ffa1c32b542d58b7511fb73dd49fdb6c"
+  "gitHead": "34f943e8fe93cea0a4ff5a49c5eb771a88587cf6"
 }
