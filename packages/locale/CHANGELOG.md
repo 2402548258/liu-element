@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://github.com/2402548258/liu-element/compare/v1.2.0...v1.2.1) (2025-11-12)
+
+### 🚀 Performance Improvements | 优化
+
+* changelog ([5e58bd0](https://github.com/2402548258/liu-element/commit/5e58bd061d4fcb3e543838e8099999fc117201b5))by.@晓月
+
 ## [1.2.0](https://github.com/2402548258/liu-element/compare/v1.0.1...v1.2.0) (2025-11-12)
 
 ### 🐛 Bug Fixes | Bug 修复
