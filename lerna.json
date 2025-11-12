@@ -53,6 +53,9 @@
     "issuePrefixes": ["#"],
     "commitUrlFormat": "{{host}}/{{owner}}/{{repository}}/commit/{{hash}}",
     "compareUrlFormat": "{{host}}/{{owner}}/{{repository}}/compare/{{previousTag}}...{{currentTag}}",
-    "userUrlFormat": "{{host}}/{{user}}"
+    "userUrlFormat": "{{host}}/{{user}}",
+    "writerOpts": {
+      "commitsSort": ["subject", "scope"]
+    }
   }
 }
