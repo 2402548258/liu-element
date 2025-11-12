@@ -1,6 +1,6 @@
 {
   "name": "@xiaoyue789/liu-element",
-  "version": "1.0.6",
+  "version": "1.1.0",
   "description": "Components library by Vue3 + Ts",
   "main": "./index.ts",
   "type": "module",
