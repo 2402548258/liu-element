@@ -37,14 +37,14 @@ function handleChange() {
 //     inputRef.value!.checked = checked.value;
 // });
 
-// watch(checked, (val) => {
-//     inputRef.value!.checked = val;
-//     formItem?.validate("change").catch((err) => debugWarn(err));
-// });
-// watch(
-//     () => props.modelValue,
-//     (val) => (innerValue.value = val)
-// );
+watch(checked, (val) => {
+    inputRef.value!.checked = val;
+    // formItem?.validate("change").catch((err) => debugWarn(err));
+});
+watch(
+    () => props.modelValue,
+    (val) => (innerValue.value = val)
+);
 
 defineExpose<SwitchInstance>({
     focus,

@@ -125,7 +125,6 @@ const handleFilterDebounce = debounce(handleFilter, timeout.value)
 function handleFilter() {
     const search = selectStates.inputValue
     selectStates.highlightedIndex = -1
-
     if (hasChildren.value) {
         genFilterChilds(search)
         return
@@ -136,6 +135,7 @@ async function genFilterChilds(search: string) {
     if (!props.filterable) return
     if (props.remote && isFunction(props.remoteMethod)) {
         await callRemoteMethod(props.remoteMethod, search) || []
+        setFilterChild(childrenOptions.value);
         return
     }
     if (props.filterMethod && props.filterMethod && isFunction(props.filterMethod)) {
@@ -144,7 +144,6 @@ async function genFilterChilds(search: string) {
         return
     }
     setFilterChild(filter(childrenOptions.value, (item) => includes(item.props?.label, search)))
-
 }
 async function genFilterOptions(search: string) {
     if (!props.filterable) return
@@ -152,7 +151,7 @@ async function genFilterOptions(search: string) {
         filteredOptions.value = await callRemoteMethod(props.remoteMethod, search) || []
         return
     }
-    if (props.filterMethod && props.filterMethod && isFunction(props.filterMethod)) {
+    if (props.filterMethod && props.filterMethod && isFunction(props.filterMethod))  {
         filteredOptions.value = props.filterMethod(search)
         return
     }
