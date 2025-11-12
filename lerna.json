@@ -53,14 +53,6 @@
     "issuePrefixes": ["#"],
     "commitUrlFormat": "{{host}}/{{owner}}/{{repository}}/commit/{{hash}}",
     "compareUrlFormat": "{{host}}/{{owner}}/{{repository}}/compare/{{previousTag}}...{{currentTag}}",
-    "userUrlFormat": "{{host}}/{{user}}",
-    "writerOpts": {
-      "commitsSort": ["subject", "scope"],
-      "commitPartial": "* {{subject}}\n",
-      "headerPartial": "# Changelog\n\n",
-      "mainTemplate": "{{> header}}{{> commitGroups}}\n{{> footer}}",
-      "commitGroupTemplate": "## {{title}}\n{{> commits}}\n",
-      "footerPartial": ""
-    }
+    "userUrlFormat": "{{host}}/{{user}}"
   }
 }

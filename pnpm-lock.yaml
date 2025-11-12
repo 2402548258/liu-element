@@ -58,13 +58,13 @@ importers:
         version: 3.4.19(typescript@5.2.2)
     devDependencies:
       '@lerna-lite/cli':
-        specifier: ^3.12.3
+        specifier: ^3.7.1
         version: 3.12.3(@lerna-lite/publish@3.12.3(@types/node@20.11.20)(typescript@5.2.2))(@lerna-lite/version@3.12.3(@lerna-lite/publish@3.12.3(@types/node@20.11.20)(typescript@5.2.2))(@types/node@20.11.20)(typescript@5.2.2))(@types/node@20.11.20)(typescript@5.2.2)
       '@lerna-lite/publish':
-        specifier: ^3.8.0
+        specifier: ^3.7.1
         version: 3.12.3(@types/node@20.11.20)(typescript@5.2.2)
       '@lerna-lite/version':
-        specifier: ^3.8.0
+        specifier: ^3.7.1
         version: 3.12.3(@lerna-lite/publish@3.12.3(@types/node@20.11.20)(typescript@5.2.2))(@types/node@20.11.20)(typescript@5.2.2)
       '@rollup/plugin-terser':
         specifier: ^0.4.4

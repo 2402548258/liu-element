@@ -1,6 +1,6 @@
 {
   "name": "@liu-element/locale",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "main": "index.ts",
   "module": "index.ts",
@@ -9,5 +9,6 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "gitHead": "c159a5d7ffa1c32b542d58b7511fb73dd49fdb6c"
 }
