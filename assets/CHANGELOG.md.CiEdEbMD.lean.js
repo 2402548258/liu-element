@@ -1,1 +1,0 @@
-import{a1 as e,a,o as t,ao as r}from"./chunks/framework.BrET4uyz.js";const b=JSON.parse('{"title":"Change Log","description":"","frontmatter":{},"headers":[],"relativePath":"CHANGELOG.md","filePath":"CHANGELOG.md"}'),o={name:"CHANGELOG.md"},l=r("",8),n=[l];function i(h,c,s,u,m,d){return t(),a("div",null,n)}const f=e(o,[["render",i]]);export{b as __pageData,f as default};
