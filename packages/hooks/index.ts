@@ -6,4 +6,15 @@ import { useLocale } from './useLocale';
 import { useOffset } from './useOffset';
 import { useZIndex } from './useZIndex';
 import { useFocusController } from './useFocusController';
-export { useClickOutside,useEventListener,useId,useDisabledStyle,useLocale,useOffset,useZIndex,useFocusController } ;
+import useProps  from './useProps';
+export {
+  useClickOutside,
+  useEventListener,
+  useId,
+  useDisabledStyle,
+  useLocale,
+  useOffset,
+  useZIndex,
+  useFocusController,
+  useProps,
+};

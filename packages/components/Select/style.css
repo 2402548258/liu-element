@@ -11,11 +11,11 @@
  display: inline-block;
   vertical-align: middle;
   line-height: 32px;
-  :deep(.er-tooltip__popper) {
+  :deep(.liu-tooltip__popper) {
     padding: 0;
   }
 
-  :deep(.er-input){
+  :deep(.liu-input){
     .header-angle {
       transition: transform var(--liu-transition-duration);
       &.is-active {
@@ -70,7 +70,7 @@
 
   }
 
-  :deep(.er-input__inner) {
+  :deep(.liu-input__inner) {
     cursor: pointer;
   }
 }

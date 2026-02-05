@@ -47,7 +47,7 @@ export default defineConfig({
     outDir: "dist/umd",
     lib: {
       entry: resolve(__dirname, "./index.ts"),
-      name: "LiuUI",
+      name: "liuElement",
       fileName: "index",
       formats: ["umd"],
     },

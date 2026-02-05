@@ -104,6 +104,8 @@ const {
     handleFocus,
 } = useFocusController(inputRef)
 
+
+
 const childrenOptions = computed(() => {
     if (!hasChildren.value) return
     return map(children.value, (item) => ({
@@ -286,6 +288,8 @@ provide<SelectContext>(SELECT_CTX_KEY, {
     highlightedLine,
     handleSelect
 })
+
+
 
 defineExpose<SelectInstance>({
     focus,

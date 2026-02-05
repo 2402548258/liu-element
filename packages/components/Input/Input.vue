@@ -4,7 +4,8 @@ import type { InputEmits, InputInstance, InputProps } from './types';
 import Icon from '../Icon/Icon.vue';
 import { useFocusController } from '@liu-element/hooks';
 import { each, noop } from "lodash-es";
-
+import { useFormItem, useFormItemInputId } from "../Form/hooks"
+import { debugWarn } from '@liu-element/utils';
 
 defineOptions({
     name: "LiuInput"
@@ -22,6 +23,11 @@ const passwordVisible = ref(false);
 const inputRef = shallowRef<HTMLInputElement>()
 const textareaRef = shallowRef<HTMLTextAreaElement>()
 const _ref = computed(() => inputRef.value ?? textareaRef.value)
+
+const { formItem } = useFormItem()
+
+const { inputId } = useFormItemInputId(props, formItem)
+
 
 const showClear = computed(() => {
     return props.clearable
@@ -41,6 +47,8 @@ const showPasswordArea = computed(
 
 const { wrapperRef, isFocused, handleFocus, handleBlur } = useFocusController(_ref, {
     afterBlur: () => {
+        formItem?.validate("blur").catch((err) => {
+            debugWarn('LiuInput',err)})
     },
 })
 
@@ -48,6 +56,7 @@ const clear = () => {
     innerValue.value = ""
     each(["update:modelValue", "input", "change"], (e) => emits(e as any, ""));
     emits("clear")
+    formItem?.clearValidate()
 }
 
 const blur = () => {
@@ -75,7 +84,11 @@ const handleChange = () => {
 }
 
 watch(() => props.modelValue,
-    (newValue) => innerValue.value = newValue)
+    (newValue) => {
+        innerValue.value = newValue
+        formItem?.validate("change").catch((err) => debugWarn(err))
+    }
+)
 
 
 defineExpose<InputInstance>({
@@ -110,7 +123,7 @@ defineExpose<InputInstance>({
                 <span v-if="$slots.prefix" class="liu-input__prefix">
                     <slot name="prefix"></slot>
                 </span>
-                <input class="liu-input__inner" ref="inputRef"
+                <input class="liu-input__inner" ref="inputRef" :id="inputId"
                     :type="showPassword ? (passwordVisible ? 'text' : 'password') : type" :disabled="isDisabled"
                     :readonly="readonly" :autocomplete="autocomplete" :placeholder="placeholder" :autofocus="autofocus"
                     :form="form" v-model="innerValue" v-bind="attrs" @input="handleInput" @change="handleChange"
@@ -134,7 +147,7 @@ defineExpose<InputInstance>({
 
         <!-- textarea -->
         <template v-else>
-            <textarea class="liu-texta  rea__wrapper" ref="textareaRef" :disabled="isDisabled" :readonly="readonly"
+            <textarea class="liu-textarea__wrapper" ref="textareaRef" :id="inputId"  :disabled="isDisabled" :readonly="readonly"
                 :autocomplete="autocomplete" :placeholder="placeholder" :autofocus="autofocus" :form="form"
                 v-model="innerValue" v-bind="attrs" @input="handleInput" @change="handleChange" @focus="handleFocus"
                 @blur="handleBlur"></textarea>

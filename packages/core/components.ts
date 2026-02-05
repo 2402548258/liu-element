@@ -17,7 +17,9 @@ import {
   LiuLoading,
   LiuSwitch,
   LiuSelect,
-  LiuOption
+  LiuOption,
+  LiuForm,
+  LiuFormItem
 } from "@liu-element/components";
 
 
@@ -41,5 +43,7 @@ export default [
   LiuLoading,
   LiuSwitch,
   LiuSelect,
-  LiuOption
+  LiuOption,
+  LiuForm,
+  LiuFormItem
 ] as Plugin[];

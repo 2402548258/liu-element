@@ -5,7 +5,7 @@ import { debugWarn } from "@liu-element/utils";
 import { useId } from "@liu-element/hooks";
 // import { useFormItem, useFormDisabled, useFormItemInputId } from "../Form";
 
-defineOptions({ name: "ErSwitch", inheritAttrs: false });
+defineOptions({ name: "LiuSwitch", inheritAttrs: false });
 const props = withDefaults(defineProps<SwitchProps>(), {
     activeValue: true,
     inactiveValue: false,
