@@ -1,6 +1,6 @@
 {
   "name": "@xiaoyue789/liu-element",
-  "version": "1.2.0",
+  "version": "1.2.2",
   "description": "Components library by Vue3 + Ts",
   "main": "./dist/umd/index.umd.cjs",
   "module": "./dist/es/index.js",
@@ -15,7 +15,7 @@
       "import": "./dist/",
       "require": "./dist/"
     },
-    "./css":"./dist/index.css"
+    "./css": "./dist/index.css"
   },
   "type": "module",
   "files": [
