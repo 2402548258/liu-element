@@ -33,7 +33,7 @@ const containerNode = ref<HTMLElement>()
 
 const popperNode = ref<HTMLElement>()
 const triggerNode = computed(() => {
-    if(props.virtualTriggering){
+    if (props.virtualTriggering) {
         return (props.virtualRef as ButtonInstance)?.ref as any ?? props.virtualRef as HTMLElement ?? _triggerNode.value
     }
     return _triggerNode.value
@@ -56,7 +56,7 @@ const popperOptions = computed(() => {
 let openDebounce: DebouncedFunc<() => void> | void;
 let closeDebounce: DebouncedFunc<() => void> | void;
 
-useEvenstToTiggerNode(props, triggerNode, events, () =>{
+useEvenstToTiggerNode(props, triggerNode, events, () => {
     openDebounce?.cancel();
     setVisible(false);
 })
@@ -142,9 +142,9 @@ watch(() => props.trigger,
     }
 )
 
-useClickOutside(containerNode,() =>{
+useClickOutside(containerNode, () => {
     emits("click-outside")
-    if(props.trigger === 'hover' || props.manual) return;
+    if (props.trigger === 'hover' || props.manual) return;
     visible.value && closeFinal();
 })
 
@@ -181,7 +181,7 @@ watch(() => props.manual,
             return;
         }
         attachEvents();
-    },{ immediate: true }
+    }, { immediate: true }
 )
 defineExpose({
     show,
@@ -196,7 +196,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-    <div class="liu-tooltip" ref="containerNode" v-on="outerEvents" >
+    <div class="liu-tooltip" ref="containerNode" v-on="outerEvents">
         <div class="liu-tooltip__trigger" ref="_triggerNode" v-on="events" v-if="!virtualTriggering">
             <slot></slot>
         </div>

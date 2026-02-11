@@ -1,5 +1,4 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import liuElement from '@xiaoyue789/liu-element'
-import "@xiaoyue789/liu-element/css";
-createApp(App).use(liuElement).mount('#app')
+import '@xiaoyue789/liu-element/dist/theme/index.css'
+createApp(App).mount('#app')

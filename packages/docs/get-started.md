@@ -22,7 +22,7 @@ npm i @xiaoyue789/liu-element --save
 // 引入所有组件
 import LiuElement from '@xiaoyue789/liu-element'
 // 引入样式
-import '@xiaoyue789/liu-element/dist/style.css'
+import '@xiaoyue789/liu-element/css'
 
 import App from './App.vue'
 // 全局使用
@@ -55,9 +55,9 @@ liu-element 提供了基于 ES Module 的开箱即用的 Tree Shaking 功能。
 ## 亮点
 
 ::: details
-- Vite + Vitest + Vitepress 工具链
+- 支持按需引入与全局注册双模式
+- 基于 Vite 双配置输出 ES / UMD
 - monorepo 分包管理
 - github actions 实现 CI/CD 自动化部署
 - 大模型辅助：使用大模型辅助完成需求分析，设计思路，快速实现组件，提升开发效率。
-- 当然，也会展示 发布“开箱即用” 的 npm 包
 :::

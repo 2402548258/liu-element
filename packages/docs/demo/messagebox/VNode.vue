@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { h, ref } from "vue";
-import { LiuMessageBox } from "@xiaoyue789/liu-element";
+import { LiuMessageBox,LiuSwitch, type SwitchValueType } from "@xiaoyue789/liu-element";
 
 function open1() {
   LiuMessageBox({
@@ -13,17 +13,17 @@ function open1() {
 }
 
 function open2() {
-  // const checked = ref<SwitchValueType>(false);
-  // LiuMessageBox({
-  //   title: "Message",
-  //   message: () =>
-  //     h(LiuSwitch, {
-  //       modelValue: checked.value,
-  //       "onUpdate:modelValue": (val: SwitchValueType) => {
-  //         checked.value = val;
-  //       },
-  //     }),
-  // });
+  const checked = ref<SwitchValueType>(false);
+  LiuMessageBox({
+    title: "Message",
+    message: () =>
+      h(LiuSwitch, {
+        modelValue: checked.value,
+        "onUpdate:modelValue": (val: SwitchValueType) => {
+          checked.value = val;
+        },
+      }),
+  });
 }
 </script>
 

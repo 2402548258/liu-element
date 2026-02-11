@@ -26,15 +26,6 @@ const rules = reactive({
   desc: [{ required: true, message: "请填写活动形式", trigger: "blur" }],
 });
 
-// const rules = reactive({
-//   name: [
-//     { required: true, message: "请输入活动名称", trigger: "blur" },
-//     { min: 3, max: 5, message: "长度在 3 到 5 个字符", trigger: "blur" },
-//   ],
-//   region: [{ required: true, message: "请选择活动区域", trigger: "change" }],
-//   delivery: [{ type: "boolean", required: true, message: "请确认配送方式", trigger: "change" }],
-//   desc: [{ required: true, message: "请填写活动形式", trigger: "blur" }],
-// });
 
 
 const onSubmit = () => {
@@ -44,19 +35,9 @@ const onSubmit = () => {
     }
   }).catch(
     (err) => {
-
-      // if(size(err.name)>0){
-      //   each(err.name, (field) => {
-      //     field.validate();
-      //   });
-      // }
       each(err, (value, key) => {
         LiuMessage.danger(value[0].message);
-
       })
-      // console.log(err);
-      // const {name} = err;
-      // LiuMessage.danger(name[0].message);
       }
       );
 };

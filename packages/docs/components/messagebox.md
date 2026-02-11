@@ -15,9 +15,6 @@ prev:
 
 模拟系统的消息提示框而实现的一套模态对话框组件，用于消息提示、确认消息和提交内容。
 
-::: tip
-从设计上来说，MessageBox 的作用是美化系统自带的 alert、confirm 和 prompt，因此适合展示较为简单的内容。
-:::
 
 ## 消息提示
 
@@ -78,7 +75,7 @@ demo-preview=../demo/messagebox/Center.vue
 ## 单独引用
 
 ```typescript
-import { LiuMessageBox } from "eric-ui";
+import { LiuMessageBox } from "@xiaoyue789/liu-element";
 ```
 
 ## MessageBox API

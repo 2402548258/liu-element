@@ -1,3 +1,4 @@
+
 import { each, isElement } from "lodash-es";
 import { onMounted, onUnmounted, watch } from "vue";
 import type { ComputedRef, Ref, WatchStopHandle } from "vue";
@@ -26,12 +27,12 @@ export function useEvenstToTiggerNode(
     const el = triggerNode.value;
     isElement(el) &&
       each(
-        ["mouseenter", "click", "contextmenu","mouseleave"],
+        ["mouseenter", "click", "contextmenu", "mouseleave"],
         (key) =>
           _eventHandleMap.has(key) &&
           el?.removeEventListener(key, _eventHandleMap.get(key))
       );
-  };  
+  };
 
   onMounted(() => {
     watchTriggerNodeStopHandle = watch(
@@ -59,3 +60,4 @@ export function useEvenstToTiggerNode(
 }
 
 export default useEvenstToTiggerNode;
+

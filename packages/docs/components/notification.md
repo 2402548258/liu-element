@@ -44,7 +44,7 @@ demo-preview=../demo/notification/Closeable.vue
 ## 单独引用
 
 ```typescript
-import { ErNotification } from "eric-ui";
+import { LiuNotification } from "@xiaoyue789/liu-element";
 ```
 
 ## Notification API

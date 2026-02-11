@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import { LiuButton,LiuAlert, type AlertType} from '@xiaoyue789/liu-element';
-import { template } from 'lodash-es';
+import type { AlertType } from '@xiaoyue789/liu-element';
+import {LiuButton,LiuAlert} from '@xiaoyue789/liu-element'
+import '@xiaoyue789/liu-element/dist/theme/Button.css'
+import '@xiaoyue789/liu-element/dist/theme/Alert.css'
 const args = {
     title: "标题",
         description: "这是一段描述",

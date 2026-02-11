@@ -1,17 +1,17 @@
 import {
-  computed,
-  defineComponent,
-  h,
-  watch
-} from "./chunk-QQPDCYC4.js";
-import {
   config$1,
   icon,
   parse$1,
   text
 } from "./chunk-CWSTFTPX.js";
+import {
+  computed,
+  defineComponent,
+  h,
+  watch
+} from "./chunk-QQPDCYC4.js";
 
-// ../../node_modules/.pnpm/@fortawesome+vue-fontawesom_36927240fe068d88d293f15634a911c8/node_modules/@fortawesome/vue-fontawesome/index.es.js
+// ../../node_modules/.pnpm/@fortawesome+vue-fontawesom_889438253dcda6bff123f7f998147d39/node_modules/@fortawesome/vue-fontawesome/index.es.js
 function _arrayLikeToArray(r, a) {
   (null == a || a > r.length) && (a = r.length);
   for (var e = 0, n = Array(a); e < a; e++)
