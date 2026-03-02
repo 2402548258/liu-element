@@ -8,7 +8,8 @@ import { useFormItem, useFormItemInputId } from "../Form/hooks"
 import { debugWarn } from '@liu-element/utils';
 
 defineOptions({
-    name: "LiuInput"
+    name: "LiuInput",
+    inheritAttrs: false
 })
 
 const props = withDefaults(defineProps<InputProps>(), {

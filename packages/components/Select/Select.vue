@@ -134,18 +134,24 @@ function handleFilter() {
     genFilterOptions(search)
 }
 async function genFilterChilds(search: string) {
-    if (!props.filterable) return
+    selectStates.loading = true
+    if (!props.filterable) { 
+        selectStates.loading = false
+        return }
     if (props.remote && isFunction(props.remoteMethod)) {
         await callRemoteMethod(props.remoteMethod, search) || []
         setFilterChild(childrenOptions.value);
+        selectStates.loading = false
         return
     }
     if (props.filterMethod && props.filterMethod && isFunction(props.filterMethod)) {
         const opts = map(props.filterMethod(search), (item) => item.value)
         setFilterChild(filter(childrenOptions.value, (item) => includes(opts, item.props?.value)))
+        selectStates.loading = false
         return
     }
     setFilterChild(filter(childrenOptions.value, (item) => includes(item.props?.label, search)))
+    selectStates.loading = false
 }
 async function genFilterOptions(search: string) {
     if (!props.filterable) return
@@ -342,3 +348,7 @@ defineExpose<SelectInstance>({
         </liu-tooltip>
     </div>
 </template>
+
+<style scoped>
+@import "./style.css";
+</style>

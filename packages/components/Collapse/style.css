@@ -58,8 +58,6 @@
 }
 
 
-
-
 .slide-enter-active,
 .slide-leave-active {
     transition: height var(--liu-transition-duration) ease-in-out;

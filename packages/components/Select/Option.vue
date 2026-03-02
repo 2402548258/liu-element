@@ -13,10 +13,10 @@ const props = withDefaults(defineProps<SelectOptionProps>(), {
 });
 const ctx = inject(SELECT_CTX_KEY)
 const selected = computed(() => {
-    ctx?.selectStates.selectedOption?.value === props.value
+    return ctx?.selectStates.selectedOption?.value === props.value
 })
 const isHighlighted = computed(() => {
-   every(["label", "value"],(key) => eq(get(ctx,["highlightedLine","value",key]),get(props,key)))
+   return every(["label", "value"],(key) => eq(get(ctx,["highlightedLine","value",key]),get(props,key)))
 })
 
 
@@ -37,3 +37,8 @@ function handleClick() {
         </slot>
     </li>
 </template>
+
+
+<style scoped>
+@import "./style.css";
+</style>

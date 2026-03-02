@@ -23,10 +23,13 @@ export default function useKeyMap({
   const keyMap: Map<string, Function> = new Map();
 
   keyMap.set("Enter", () => {
-    if(isDropdownVisible.value && selectStates.highlightedIndex >= 0 && highlightedLine.value){
-        handleSelect(highlightedLine.value);
+    if (!isDropdownVisible.value) {
+      controlVisible(true);
+      return;
     }
-    controlVisible(!isDropdownVisible.value);
+    if (selectStates.highlightedIndex >= 0 && highlightedLine.value) {
+      handleSelect(highlightedLine.value);
+    }
   });
   keyMap.set(
     "Escape",
@@ -34,6 +37,10 @@ export default function useKeyMap({
   );
   keyMap.set("ArrowUp", (e: KeyboardEvent) => {
     e.preventDefault();
+    if (!isDropdownVisible.value) {
+      controlVisible(true);
+      return;
+    }
     if (!hasData.value) return;
     if (
       selectStates.highlightedIndex === -1 ||
@@ -47,6 +54,10 @@ export default function useKeyMap({
 
   keyMap.set("ArrowDown", (e: KeyboardEvent) => {
     e.preventDefault();
+    if (!isDropdownVisible.value) {
+      controlVisible(true);
+      return;
+    }
     if (!hasData.value) return;
     if (
       selectStates.highlightedIndex === -1 ||
